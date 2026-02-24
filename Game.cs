@@ -33,15 +33,17 @@ public class Game {
         DealCards();
     }
 
+    //Dealer kort til hver spiller og sorterer deres kort
     private void DealCards() {
         foreach (var player in Players) {
-            player.CreateHand(Deck);   // deals 13 cards
-            player.HandSort();         // sorts the hand
+            player.CreateHand(Deck);   // dealer 13 kort
+            player.HandSort();         // sorterer hånden
         }
 
         RemainingCards = new List<Card>(Deck.Cards); //Laver katten miaw :3
     }
 
+    //Til at printe hver spillers hånd
     public void PrintHands() {
         foreach (var player in Players) {
             player.PrintHand();
@@ -51,6 +53,7 @@ public class Game {
         Console.WriteLine($"Cards remaining in deck: {Deck.Cards.Count}");
     }
 
+    //Til at printe Katten (3 sidste kort)
     public void PrintKatten() {
         Console.WriteLine("Katten:");
         foreach (var card in RemainingCards) {

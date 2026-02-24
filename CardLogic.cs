@@ -5,6 +5,7 @@ public class Deck {
         get; private set;
     }
 
+    //Laver et deck med 55 kort. 52 normale og 3 jokere
     public Deck() {
         Cards = new List<Card>();
         for (int suit = 1; suit <= 4; suit++) { //Create 4 suits with 13 ranks
@@ -16,6 +17,8 @@ public class Deck {
             Cards.Add(new Card(0, 0));
         }
     }
+
+    //Blander kort i et Deck
     public void Shuffle() {
         Random rng = new Random();
         int n = Cards.Count;
@@ -51,6 +54,7 @@ public class Card : IComparable<Card> {
         Suit = suit;
     }
 
+    //Fra aflevering 3. Den overrider CompareTo, så man kan bruge alle ICompare funktioner på Card
     public int CompareTo(Card c) {
         int compareSuits = this.Suit.CompareTo(c.Suit);
         if (compareSuits != 0)
@@ -58,6 +62,7 @@ public class Card : IComparable<Card> {
         return this.Rank.CompareTo(c.Rank);
     }
 
+    //Gør det muligt at printe læselig kulør og rang i stedet for integers
     public override string ToString() {
         string[] suits = { "", "Spades", "Hearts", "Clubs", "Diamonds" };
         string[] ranks = { "", "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
