@@ -1,8 +1,12 @@
 namespace Whist;
 
 public class Player {
-    public string Name { get; set; }
-    public List<Card> Hand { get; private set; }
+    public string Name {
+        get; set;
+    }
+    public List<Card> Hand {
+        get; private set;
+    }
 
     public Player(string name) {
         Name = name;
@@ -15,10 +19,10 @@ public class Player {
     }
 
     public void PrintHand() {
-            Console.WriteLine($"{Name}'s hand:");
-            foreach (var card in Hand) {
-                Console.WriteLine(card);
-            }
+        Console.WriteLine($"{Name}'s hand:");
+        foreach (var card in Hand) {
+            Console.WriteLine(card);
+        }
     }
 
     public void HandSort() {
